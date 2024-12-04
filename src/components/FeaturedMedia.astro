@@ -1,0 +1,45 @@
+---
+import { mediaItems } from '../data/media';
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  {mediaItems.map(item => (
+    <div class="relative group">
+      <img
+        src={item.thumbnail}
+        alt={item.title}
+        class="w-full h-64 object-cover rounded-lg"
+      />
+      <div class="absolute inset-0 flex items-center justify-center">
+        {item.type === 'video' && (
+          <a 
+            href={item.url} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors"
+          >
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </a>
+        )}
+      </div>
+      <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+        <div class="text-center p-4">
+          <h3 class="text-lg font-bold">{item.title}</h3>
+          <p class="text-sm text-gray-300">{item.date}</p>
+          {item.url && (
+            <a 
+              href={item.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="mt-2 inline-block text-red-500 hover:text-red-400"
+            >
+              Watch Video
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

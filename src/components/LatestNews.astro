@@ -1,0 +1,25 @@
+---
+import { format } from 'date-fns';
+import { newsItems } from '../data/news';
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  {newsItems.map(item => (
+    <article class="bg-gray-800 rounded-lg overflow-hidden">
+      <div class="p-6">
+        <time class="text-gray-400 text-sm">
+          {format(item.date, 'MMMM d, yyyy')}
+        </time>
+        <h3 class="text-xl font-bold mt-2 mb-3">
+          <a href={`/news/${item.slug}`} class="hover:text-red-500">
+            {item.title}
+          </a>
+        </h3>
+        <p class="text-gray-300">{item.excerpt}</p>
+        <a href={`/news/${item.slug}`} class="inline-block mt-4 text-red-500 hover:text-red-400">
+          Read More →
+        </a>
+      </div>
+    </article>
+  ))}
+</div>
