@@ -14,7 +14,7 @@ export const mediaItems: MediaItem[] = [
     date: 'March 15, 2024',
     url: 'https://youtu.be/3ozFKFY1G5I'
   },
-  {
+  /* {
     type: 'image',
     thumbnail: '/images/gallery/show1.jpg',
     title: 'Live at Metal Arena',
@@ -25,5 +25,5 @@ export const mediaItems: MediaItem[] = [
     thumbnail: '/images/gallery/show2.jpg',
     title: 'Backstage Moments',
     date: 'March 1, 2024'
-  }
+  } */
 ];
